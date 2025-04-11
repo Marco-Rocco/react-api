@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 const endpoint = `https://www.freetestapi.com/api/v1/actresses`;
@@ -9,15 +9,17 @@ function App() {
 
   function fetchActresses() {
     axios.get(endpoint)
-      .then((response) => setActresses(response.data))
+      .then((response) => setActresses(response.data));
   }
 
-
+  console.log(actresses)
 
   return (
 
     <>
       <div className="contain">
+
+        <button onClick={fetchActresses}>Carica Attrici</button>
 
         <ul>
           {actresses.map((actress) => (
