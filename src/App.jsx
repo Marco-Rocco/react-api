@@ -16,11 +16,13 @@ function App() {
   function fetchActresses() {
     axios.get(endpointFemale)
       .then((response) => setActresses(response.data));
+    setActors([])
   }
 
   function fetchActors() {
     axios.get(endpointMale)
       .then((response) => setActors(response.data));
+    setActresses([])
   }
   console.log(actresses)
   console.log(actors)
